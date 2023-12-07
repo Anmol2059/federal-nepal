@@ -1,7 +1,7 @@
-// Fetch JSON data from index.json
-async function fetchData() {
+async function fetchData(language) {
+    const jsonFileName = language === 'nepali' ? 'nep.json' : 'index.json';
     try {
-        const response = await fetch('index.json');
+        const response = await fetch(jsonFileName);
         const data = await response.json();
         return data;
     } catch (error) {
@@ -16,10 +16,13 @@ const localBodiesDropdown = document.getElementById('localBodies');
 const areaSpan = document.getElementById('area');
 const websiteLink = document.getElementById('website');
 const wardsSpan = document.getElementById('wards');
+const languageDropdown = document.getElementById('languages');
 
-// Function to populate provinces dropdown
-async function populateProvinces() {
-    const data = await fetchData();
+// Function to populate provinces dropdown based on selected language
+async function populateProvinces(language) {
+    const data = await fetchData(language);
+
+    provincesDropdown.innerHTML = ''; // Clear previous options
 
     data.forEach(province => {
         const option = document.createElement('option');
@@ -35,7 +38,7 @@ async function populateProvinces() {
 
 // Function to populate districts dropdown based on selected province
 async function populateDistricts() {
-    const data = await fetchData();
+    const data = await fetchData(languageDropdown.value);
 
     const selectedProvinceId = provincesDropdown.value;
     const selectedProvince = data.find(province => province.id === parseInt(selectedProvinceId));
@@ -58,7 +61,7 @@ async function populateDistricts() {
 
 // Function to populate local bodies dropdown based on selected district
 async function populateLocalBodies() {
-    const data = await fetchData();
+    const data = await fetchData(languageDropdown.value);
 
     const selectedDistrictId = districtsDropdown.value;
     const selectedProvince = data.find(province => province.id === parseInt(provincesDropdown.value));
@@ -79,7 +82,7 @@ async function populateLocalBodies() {
 
 // Function to display details of selected local body
 async function displayLocalBodyDetails() {
-    const data = await fetchData();
+    const data = await fetchData(languageDropdown.value);
 
     const selectedDistrictId = districtsDropdown.value;
     const selectedProvince = data.find(province => province.id === parseInt(provincesDropdown.value));
@@ -110,5 +113,16 @@ districtsDropdown.addEventListener('change', () => {
 
 localBodiesDropdown.addEventListener('change', displayLocalBodyDetails);
 
-// Populate provinces on initial load
-populateProvinces();
+// Event listener for language dropdown changes
+languageDropdown.addEventListener('change', () => {
+    // Clear existing details when language changes
+    areaSpan.textContent = '';
+    websiteLink.textContent = '';
+    websiteLink.href = '';
+    wardsSpan.textContent = '';
+
+    populateProvinces(languageDropdown.value);
+});
+
+// Populate provinces based on the initial language selection (default: English)
+populateProvinces(languageDropdown.value);
