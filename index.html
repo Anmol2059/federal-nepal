@@ -3,31 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Local Bodies</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <label for="languages">Choose Language:</label>
-  <select id="languages">
-    <option value="english">English</option>
-    <option value="nepali">Nepali</option>
-  </select>
-  
-  <label for="provinces">Provinces:</label>
-  <select id="provinces"></select>
-  <br><br>
+  <nav>
+    <h1>Local Bodies of Nepal 🇳🇵</h1>
+    <div class="navbar-right">
+      <label for="darkModeToggle">Toggle Dark Mode:</label>
+      <input type="checkbox" id="darkModeToggle">
+      <label for="languages">Choose Language:</label>
+      <select id="languages">
+        <option value="english">English</option>
+        <option value="nepali">Nepali</option>
+      </select>
+    </div>
+  </nav>
 
-  <label for="districts">Districts:</label>
-  <select id="districts"></select>
-  <br><br>
+  <div class="content">
+    <div class="select-container">
+      <label for="provinces">Provinces:</label>
+      <select id="provinces"></select>
 
-  <label for="localBodies">Local Bodies:</label>
-  <select id="localBodies"></select>
-  <br><br>
+      <label for="districts">Districts:</label>
+      <select id="districts"></select>
 
-  <div>
-    <h3>Details of Selected Local Body:</h3>
-    <p>Area (sq km): <span id="area"></span></p>
-    <p>Website: <a id="website" href="#" target="_blank"></a></p>
-    <p>Wards: <span id="wards"></span></p>
+      <label for="localBodies">Local Bodies:</label>
+      <select id="localBodies"></select>
+    </div>
+
+    <div class="details">
+      <h3>Details of Selected Local Body:</h3>
+      <p>Area (sq km): <span id="area"></span></p>
+      <p>Website: <a id="website" href="#" target="_blank"></a></p>
+      <p>Wards: <span id="wards"></span></p>
+    </div>
   </div>
 
   <script src="script.js"></script>

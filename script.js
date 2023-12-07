@@ -126,3 +126,4 @@ languageDropdown.addEventListener('change', () => {
 
 // Populate provinces based on the initial language selection (default: English)
 populateProvinces(languageDropdown.value);
+
