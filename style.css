@@ -1,21 +1,49 @@
-:root {
-    --background-color: #f5f5f5;
-    --text-color: #333;
-    --shadow-color: rgba(0, 0, 0, 0.2);
+/* General Styles */
+body {
+    margin: 8px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    /* Light mode background color */
+    color: #333;
+    /* Text color for light mode */
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
+/* Dark Mode */
+body.dark-mode {
+    background-color: #1e1e1e;
+    /* Dark mode background color */
+    color: #ddd;
+    /* Text color for dark mode */
 }
 
 nav {
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 2px 4px var(--shadow-color);
+    background-color: #f0f0f0;
+    /* Navbar background color for light mode */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 8px 8px 16px #cbced1,
+        -8px -8px 16px #ffffff;
+    /* Neomorphic box shadow for light mode */
+}
+
+nav.dark-mode {
+    background-color: #ffd700;
+    /* Navbar background color for dark mode */
+    color: #000;
+    /* Text color for dark mode */
+    box-shadow: 8px 8px 16px #bfa300,
+        -8px -8px 16px #ffff33;
+    /* Neomorphic box shadow for dark mode */
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px;
 }
 
 .navbar-right {
@@ -23,47 +51,71 @@ nav {
     align-items: center;
 }
 
-label {
-    margin-right: 5px;
+select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
-
-
-
 .content {
-    margin: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    /* Adjust max-width as needed */
 }
 
 .select-container {
-    display: flex;
-    flex-direction: column;
     margin-bottom: 20px;
-}
-
-label[for="provinces"],
-label[for="districts"],
-label[for="localBodies"] {
-    margin-bottom: 5px;
-}
-
-select {
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: #fff;
+    width: 100%;
 }
 
 .details {
-    background-color: #fff;
+    text-align: center;
+    background-color: #f0f0f0;
+    /* Details section background color for light mode */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px var(--shadow-color);
-    margin-bottom: 20px;
+    box-shadow: 6px 6px 12px #cbced1,
+        -6px -6px 12px #ffffff;
+    /* Neomorphic box shadow for light mode */
+    width: 100%;
+    margin-top: 20px;
 }
 
-@media (max-width: 768px) {
-    .select-container {
-        flex-direction: column;
+.details.dark-mode {
+    background-color: #ffd700;
+    /* Details section background color for dark mode */
+    color: #000;
+    /* Text color for dark mode */
+    box-shadow: 6px 6px 12px #bfa300,
+        -6px -6px 12px #ffff33;
+    /* Neomorphic box shadow for dark mode */
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+    nav {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    select {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .content {
+        padding: 10px;
+    }
+
+    .details {
+        padding: 10px;
     }
 }
