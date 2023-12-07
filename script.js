@@ -127,38 +127,3 @@ languageDropdown.addEventListener('change', () => {
 // Populate provinces based on the initial language selection (default: English)
 populateProvinces(languageDropdown.value);
 
-
-// dark mode
-// Get the dark mode toggle element
-const darkModeToggle = document.getElementById('darkModeToggle');
-
-// Function to set dark mode
-function setDarkMode(isDarkMode) {
-  const body = document.body;
-  const navbar = document.querySelector('nav');
-  const details = document.querySelector('.details');
-
-  if (isDarkMode) {
-    body.classList.add('dark-mode');
-    navbar.classList.add('dark-mode');
-    details.classList.add('dark-mode');
-  } else {
-    body.classList.remove('dark-mode');
-    navbar.classList.remove('dark-mode');
-    details.classList.remove('dark-mode');
-  }
-}
-
-// Event listener for dark mode toggle
-darkModeToggle.addEventListener('change', function () {
-  setDarkMode(this.checked);
-});
-
-// Function to detect user's OS preference for dark mode
-function detectDarkMode() {
-  const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  setDarkMode(darkModeMediaQuery.matches);
-}
-
-// Check user's OS preference for dark mode on page load
-detectDarkMode();

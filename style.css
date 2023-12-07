@@ -1,121 +1,98 @@
 /* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* General Styles */
 body {
     margin: 8px;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #f0f0f0;
-    /* Light mode background color */
     color: #333;
-    /* Text color for light mode */
     transition: background-color 0.3s, color 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-}
-
-/* Dark Mode */
-body.dark-mode {
-    background-color: #1e1e1e;
-    /* Dark mode background color */
-    color: #ddd;
-    /* Text color for dark mode */
-}
-
-nav {
+    font-size: 20px; /* Increased base font size for mobile */
+  }
+  
+  nav {
     background-color: #f0f0f0;
-    /* Navbar background color for light mode */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 8px 8px 16px #cbced1,
-        -8px -8px 16px #ffffff;
-    /* Neomorphic box shadow for light mode */
-}
-
-nav.dark-mode {
-    background-color: #ffd700;
-    /* Navbar background color for dark mode */
-    color: #000;
-    /* Text color for dark mode */
-    box-shadow: 8px 8px 16px #bfa300,
-        -8px -8px 16px #ffff33;
-    /* Neomorphic box shadow for dark mode */
-}
-
-h1 {
+    box-shadow: 8px 8px 16px #cbced1, -8px -8px 16px #ffffff;
+  }
+  
+  h1 {
     margin: 0;
-    font-size: 28px;
-}
-
-.navbar-right {
+    font-size: 32px; /* Heading font size */
+  }
+  
+  .navbar-right {
     display: flex;
     align-items: center;
-}
-
-select {
-    padding: 8px;
-    border-radius: 5px;
+  }
+  
+  select {
+    padding: 10px;
+    border-radius: 8px;
     border: 1px solid #ccc;
     margin-bottom: 10px;
-}
-
-.content {
+    width: 100%;
+    max-width: 300px;
+    font-size: 18px; /* Select font size */
+  }
+  
+  .content {
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 600px;
-    /* Adjust max-width as needed */
-}
-
-.select-container {
+    height: 100vh;
+    box-sizing: border-box;
+    font-size: 22px; /* Content font size */
+  }
+  
+  .select-container {
     margin-bottom: 20px;
     width: 100%;
-}
-
-.details {
+  }
+  
+  .details {
     text-align: center;
     background-color: #f0f0f0;
-    /* Details section background color for light mode */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 6px 6px 12px #cbced1,
-        -6px -6px 12px #ffffff;
-    /* Neomorphic box shadow for light mode */
+    box-shadow: 6px 6px 12px #cbced1, -6px -6px 12px #ffffff;
     width: 100%;
     margin-top: 20px;
-}
-
-.details.dark-mode {
-    background-color: #ffd700;
-    /* Details section background color for dark mode */
-    color: #000;
-    /* Text color for dark mode */
-    box-shadow: 6px 6px 12px #bfa300,
-        -6px -6px 12px #ffff33;
-    /* Neomorphic box shadow for dark mode */
-}
-
-/* Responsive Design */
-@media only screen and (max-width: 600px) {
+    font-size: 18px; /* Details font size */
+  }
+  
+  /* Responsive Design */
+  @media only screen and (max-width: 600px) {
     nav {
-        padding: 10px;
+      padding: 10px;
     }
-
+  
     h1 {
-        font-size: 24px;
+      font-size: 28px; /* Adjusted heading font size for smaller screens */
     }
-
+  
     select {
-        width: 100%;
-        margin-bottom: 8px;
+      margin-bottom: 8px;
+      font-size: 18px; /* Adjusted select font size for smaller screens */
     }
-
+  
     .content {
-        padding: 10px;
+      padding: 10px;
+      font-size: 22px; /* Adjusted content font size for smaller screens */
     }
-
+  
     .details {
-        padding: 10px;
+      padding: 10px;
+      font-size: 20px; /* Adjusted details font size for smaller screens */
     }
-}
+  }
+  
